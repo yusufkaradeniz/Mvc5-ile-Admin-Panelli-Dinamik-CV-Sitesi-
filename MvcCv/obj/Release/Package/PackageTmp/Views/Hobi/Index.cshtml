@@ -1,0 +1,73 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblHobilerim>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.card-title {
+		font-size: 24px; /* Dilediğiniz büyüklük */
+		color: #333; /* Dilediğiniz renk */
+	}
+
+	.card {
+		border-radius: 10px; /* Kenar yumuşatma */
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+	}
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+	.form-label {
+		font-weight: bold;
+		color: #555;
+	}
+
+	.form-control {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 8px;
+	}
+
+</style>
+
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="card card-danger card-outline">
+					<div class="card-header center">
+						<h3 class="card-title text-black-450 text-xl">Hobilerim</h3>
+					</div>
+					<div class="card-body">
+						@foreach (var item in Model)
+						{
+
+							<div class="callout callout-danger">
+								<p>@item.Aciklama1</p>
+								<p>@item.Aciklama2</p>
+							</div>
+
+
+
+
+							<div class="btn-container" style="text-align: center;">
+								<a class="btn btn-outline-danger btn-group-lg" href="/Hobi/HobiDuzenle/@item.ID">Hobi Güncelle</a>
+							</div>
+
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

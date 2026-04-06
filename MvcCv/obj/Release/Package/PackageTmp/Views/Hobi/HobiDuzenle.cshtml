@@ -1,0 +1,142 @@
+﻿@model MvcCv.Models.Entity.TblHobilerim
+@{
+	ViewBag.Title = "HobiDuzenle";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.card-title {
+		font-size: 24px; /* Dilediğiniz büyüklük */
+		color: #333; /* Dilediğiniz renk */
+	}
+
+	.card {
+		border-radius: 10px; /* Kenar yumuşatma */
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+	}
+
+	.form-group {
+		margin-bottom: 15px;
+	}
+
+	.form-label {
+		font-weight: bold;
+		color: rgb(220, 53, 69);
+	}
+
+	.form-control {
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 8px;
+	}
+
+	.btn-outline-warning {
+		background-color: #ffc107; /* Dilediğiniz renk */
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+		.btn-outline-warning:hover {
+			background-color: #ff9800; /* Hover rengi */
+		}
+</style>
+<section class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-lg-7">
+				<div class="card card-danger card-outline">
+					<div class="card-header center">
+						<h3 class="card-title text-black-450 text-xl"> Hobi Güncelleme Sayfası</h3>
+					</div>
+					<div class="card-body">
+						<form method="post">
+
+
+
+
+							<div class="form-group">
+								<label class="form-label center">HOBİLERİM</label>
+								@Html.TextAreaFor(x => x.Aciklama1, new { @class = "form-control", @rows = "5", @style = "resize: none; border:1px solid rgb(220, 53, 69);", maxlength = 500 })
+								<div class="character-count center">
+									<span id="aciklama1-counter" >@Model.Aciklama1.Length</span>/500
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+							<div class="form-group">
+								<label class="form-label center">Hobilerim</label>
+								@Html.TextAreaFor(x => x.Aciklama2, new { @class = "form-control", @rows = "5", @style = "resize: none; border:1px solid rgb(220, 53, 69);", maxlength = 500 })
+								<div class="character-count center">
+									<span id="aciklama2-counter">@Model.Aciklama2.Length</span>/500
+								</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<div class="btn-container" style="text-align: center;">
+								<button class="btn btn-outline-danger btn-group-lg">Hobi Güncelle</button>
+							</div>
+
+
+
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var aciklama1TextArea = document.getElementById("Aciklama1");
+		var aciklama1Counter = document.getElementById("aciklama1-counter");
+
+		aciklama1Counter.textContent = aciklama1TextArea.value.length + "";
+
+		aciklama1TextArea.addEventListener("input", function () {
+			var charCount = aciklama1TextArea.value.length;
+			aciklama1Counter.textContent = charCount + "";
+		});
+
+		var aciklama2TextArea = document.getElementById("Aciklama2");
+		var aciklama2Counter = document.getElementById("aciklama2-counter");
+
+		aciklama2Counter.textContent = aciklama2TextArea.value.length + "";
+
+		aciklama2TextArea.addEventListener("input", function () {
+			var charCount = aciklama2TextArea.value.length;
+			aciklama2Counter.textContent = charCount + "";
+		});
+	});
+</script>
+

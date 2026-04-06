@@ -1,0 +1,74 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblHakkimda>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+</style>
+<section class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				<div class="card card-secondary card-outline">
+					<div class="card-header center">
+						<h3 class="card-title text-black-450 text-xl">Hakkımda Bilgilerini Güncelle</h3>
+					</div>
+					<div class="card-body">
+						<form method="post">
+							@foreach (var item in Model)
+							{
+								<div class="form-group">
+									<label>AD</label>
+									<input type="text" name="Ad" value="@item.Ad" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>SOY AD</label>
+									<input type="text" name="Soyad" value="@item.Soyad" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>ADRES</label>
+									<input type="text" name="Adres" value="@item.Adres" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>TELEFON</label>
+									<input type="text" name="Telefon" value="@item.Telefon" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>ELEKTRONİK POSTA</label>
+									<input type="text" name="Mail" value="@item.Mail" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>FOTOĞRAF</label>
+									<input type="text" name="Resim" value="@item.Resim" class="form-control" />
+								</div>
+
+								<div class="form-group">
+									<label>AÇIKLAMA</label>
+									<textarea name="Aciklama" class="form-control" rows="7" style="resize: none;">@item.Aciklama</textarea>
+								</div>
+
+								<hr />
+							}
+						<div class="btn-container" style="text-align: center;">
+							<button class="btn btn-secondary btn-group-lg">Güncelle</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

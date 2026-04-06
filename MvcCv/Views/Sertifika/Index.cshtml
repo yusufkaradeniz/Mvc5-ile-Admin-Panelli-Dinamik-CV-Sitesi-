@@ -1,0 +1,108 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblSertifikalarim>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		border-radius: 5px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		cursor: pointer;
+		margin: 4px 4px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+
+	.button1 {
+		background-color: white;
+		color: #F08080;
+		border: 1px solid #F08080;
+	}
+
+		.button1:hover {
+			background-color: #F08080;
+			color: white;
+		}
+</style>
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+		<!-- Navbar -->
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<div class="card card-warning card-outline" style="border-color: black;">
+							<div class="card-header center">
+								<h3 class="card-title text-black-450 text-xl">SERTİFİKA LİSTESİ</h3>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered">
+
+										<thead>
+											<tr>
+												<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">ID</th>
+												<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">Sertifika</th>
+												<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">Düzenle</th>
+												<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">Sil</th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach (var item in Model)
+											{
+												<tr>
+													<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">@item.ID</td>
+													<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">@item.Aciklama</td>
+													<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">
+														<a href="/Sertifika/SertifikaGetir/@item.ID" class="btn btn-outline-dark btn-sm" style="width: 100%; height: 50%; display: flex; align-items: center; justify-content: center;">
+															<i class="fas fa-pencil-alt"></i>&nbsp;Güncelle
+
+														</a>
+													</td>
+
+
+
+													<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%; border-color: black;">
+														<a href="/Sertifika/SertifikaSil/@item.ID" class="btn btn-outline-dark btn-sm" style="width: 100%; height: 50%; display: flex; align-items: center; justify-content: center;">
+															<i class="fas fa-trash-alt"></i>&nbsp;Silmek
+
+														</a>
+													</td>
+
+												</tr>
+											}
+										</tbody>
+									</table>
+									<div class="btn-container" style="text-align: center;">
+										<a href="/Sertifika/YeniSertifika/" class="btn btn-outline-dark btn-group-lg ">Yeni Sertifika Ekle</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.card -->
+					</div>
+				</div>
+			</div><!-- /.container-fluid -->
+		</section>
+		<!-- /.content -->
+	</div>
+</body>
+</html>

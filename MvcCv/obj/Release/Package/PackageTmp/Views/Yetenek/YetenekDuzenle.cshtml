@@ -1,0 +1,126 @@
+﻿@model MvcCv.Models.Entity.TblYeteneklerim
+@{
+	ViewBag.Title = "YetenekDuzenle";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<section class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-lg-13">
+				<div class="card card-warning card-outline" style="border-color: #F08080;">
+					<div class="card-header center">
+						<h3 class="card-title text-black-450 text-xl"> YETENEK DÜZENLE</h3>
+					</div>
+					<div class="card-body">
+						<form method="post" class="range-form">
+							@Html.Label("Yetenek")
+							@Html.TextBoxFor(x => x.Yetenek, new { @class = "form-control" })
+						
+
+							<div class="range-form">
+								<label for="derece">Derece</label>
+								<span id="dereceGoster">50</span>
+								<input type="range" id="derece" name="Oran" class="range-slider" min="0" max="100" />
+							</div>
+							<br />
+							<button class="button button1">Güncelle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</section>
+
+<style>
+	.range-form {
+		width: 300px;
+		margin: auto;
+		text-align: center;
+	}
+
+	.range-container {
+		background-color: white;
+		border: 1px solid #F08080;
+		padding: 10px;
+		border-radius: 10px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.range-slider {
+		width: 100%;
+		margin-top: 0px;
+		appearance: none;
+		height: 5px;
+		background: linear-gradient(to right, #33ccff, #ff99cc);
+		outline: none;
+		opacity: 0.7;
+		transition: opacity 0.2s;
+		border-radius: 5px;
+	}
+
+		.range-slider::-webkit-slider-thumb {
+			appearance: none;
+			width: 20px;
+			height: 20px;
+			background: #f06d06;
+			cursor: pointer;
+			border-radius: 50%;
+		}
+
+		.range-slider::-moz-range-thumb {
+			width: 20px;
+			height: 20px;
+			background: #f06d06;
+			cursor: pointer;
+			border-radius: 50%;
+		}
+
+	#dereceGoster {
+		display: inline-block;
+		font-size: 20px;
+		margin-top: 10px;
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		border-radius: 5px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		cursor: pointer;
+		margin: 4px 4px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+
+	.button1 {
+		background-color: white;
+		color: #F08080;
+		border: 1px solid #F08080;
+	}
+
+		.button1:hover {
+			background-color: #F08080;
+			color: white;
+		}
+</style>
+
+<script>
+	const dereceInput = document.getElementById('derece');
+	const dereceGoster = document.getElementById('dereceGoster');
+
+	dereceInput.addEventListener('input', function () {
+		dereceGoster.textContent = this.value;
+	});
+</script>

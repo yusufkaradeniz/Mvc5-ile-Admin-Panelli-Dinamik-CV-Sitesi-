@@ -1,0 +1,30 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblYeteneklerim>
+
+<div class="resume-section-content">
+	<h2 class="mb-5">YETENEKLERİM VE PROGRAMLAMA BİLGİM</h2>
+	<div class="subheading mb-3">YAZILIM VE UYGULAMA BİLGİSİ </div>
+	<ul class="list-inline dev-icons">
+		<li class="list-inline-item"><i class="fab fa-cuttlefish"></i>#</li>
+		<li class="list-inline-item"><i class="fab fa-html5"></i></li>
+		<li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+		<li class="list-inline-item"><i class="fab fa-bootstrap"></i></li>
+		<li class="list-inline-item"><i class="fab fa-dochub"></i>elphi</li>
+		<li class="list-inline-item"><i class="fab fa-java"></i></li>
+		<li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+		<li class="list-inline-item"><i class="fab fa-microsoft"></i></li>
+		<li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
+		<li class="list-inline-item"><i class="fab fa-python"></i></li>
+		<li class="list-inline-item"><i class="fas fa-database"></i></li>
+		<li class="list-inline-item"><i class="far fa-keyboard"></i>
+	</ul>
+		<div class="subheading mb-3">YETENEKLER VE UYGULAMA BİLGİSİ</div>
+		<ul class="fa-ul mb-0">
+			@foreach(var x in Model) {
+			<li>
+				<span class="fa-li"><i class="fas fa-check"></i></span>
+				@x.Yetenek
+			</li>
+			}
+		</ul>
+</div>

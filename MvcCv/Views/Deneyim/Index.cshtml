@@ -1,0 +1,71 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblDeneyimlerim>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+</style>
+
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<!-- Center the card -->
+			<div class="col-lg-8">
+				<!-- Adjust the column width to your preference -->
+				<div class="card card-primary card-outline">
+					<div class="card-header center">
+						<!-- Center the card header -->
+						<h3 class="card-title text-black-450 text-xl">DENEYİM LİSTESİ</h3>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">ID</th>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">Şirket Adı</th>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">Çalışma Pozisyonu</th>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">Çalışma Tarihi</th>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">Sil</th>
+										<th style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">Düzenle</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var item in Model)
+									{
+										<tr>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">@item.ID</td>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">@item.Baslik</td>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">@item.AltBaslik</td>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">@item.Tarih</td>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">
+												<a href="/Deneyim/DeneyimSil/@item.ID" class="btn btn-danger btn-sm" style="width: 100%; height: 50%; display: flex; align-items: center; justify-content: center;">
+													<i class="fas fa-trash-alt"></i>&nbsp;Silmek
+												</a>
+											</td>
+											<td style="text-align: center; padding: 4px; vertical-align: middle; height: 50%;">
+												<a href="/Deneyim/DeneyimGetir/@item.ID" class="btn btn-warning btn-sm" style="width: 100%; height: 50%; display: flex; align-items: center; justify-content: center;">
+													<i class="fas fa-pencil-alt"></i>&nbsp;Güncelle
+												</a>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+						<div class="text-center mt-4">
+							<a href="/Deneyim/DeneyimEkle" class="btn btn-primary btn-lg">Yeni Deneyim Ekle</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
